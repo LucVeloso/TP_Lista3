@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include "dadossensor.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ void preencherArquivo(){
 
     ofstream arquivoS;
 
-    arquivoS.open("L3Q5.txt");
+    arquivoS.open("L3Q8.txt");
 
     cout << "Informe os valores (- para parar): " << endl;
     
@@ -38,7 +39,7 @@ void preencherVetor(vector <int> &i){
 
     ifstream arquivoE;
 
-    arquivoE.open("L3Q5.txt");
+    arquivoE.open("L3Q8.txt");
 
     while(arquivoE >> ent){
 
@@ -62,21 +63,37 @@ void extremosVetor(vector <int> i){
     cout << "Maior valor: " << i[maior] << endl;
 }
 
-void contarElementos(vector <int> i){
+void contarElementos(vector <int> i, vector <DadosSensor> &d){
 
-    for(int cont = 0; cont < 1000; cont++){
-        cout << "O número " << cont << " aparece: " << count(i.begin(), i.end(), cont++) << endl;
+    int freq = 0;
+
+    for(int valor = 0; valor < 1000; valor++){
+
+        freq = count(i.begin(), i.end(),valor);
+
+        if(freq > 0){
+
+            d.push_back(DadosSensor(valor, freq));
+        }
     }
 }
 
-void mostrarVetor(vector <int> i){
+bool comp(DadosSensor i, DadosSensor j){
 
-    cout << "Valores:";
+    return i.getFrequencia() >= j.getFrequencia();
+}
 
-    for(auto elemento : i){
+void mostrarVetor(vector <DadosSensor> &i){
 
-        cout << " " << elemento ;
+    stable_sort(i.begin(), i.end(), comp);
+
+    cout << "\nDados:" << endl;
+
+    for(int j = 0; j < i.size(); j++){
+
+        i[j].printDados();
     }
 
     cout << endl;
 }
+

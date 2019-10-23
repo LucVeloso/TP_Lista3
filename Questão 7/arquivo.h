@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include "dadossensor.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ void preencherArquivo(){
 
     ofstream arquivoS;
 
-    arquivoS.open("L3Q5.txt");
+    arquivoS.open("L3Q7.txt");
 
     cout << "Informe os valores (- para parar): " << endl;
     
@@ -38,7 +39,7 @@ void preencherVetor(vector <int> &i){
 
     ifstream arquivoE;
 
-    arquivoE.open("L3Q5.txt");
+    arquivoE.open("L3Q7.txt");
 
     while(arquivoE >> ent){
 
@@ -62,10 +63,18 @@ void extremosVetor(vector <int> i){
     cout << "Maior valor: " << i[maior] << endl;
 }
 
-void contarElementos(vector <int> i){
+void contarElementos(vector <int> i, vector <DadosSensor> &d){
+
+    int freq = 0;
 
     for(int cont = 0; cont < 1000; cont++){
-        cout << "O número " << cont << " aparece: " << count(i.begin(), i.end(), cont++) << endl;
+
+        freq = count(i.begin(), i.end(), cont++);
+
+        if(freq >= 1){
+
+            d.push_back(DadosSensor(cont, freq));
+        }
     }
 }
 
