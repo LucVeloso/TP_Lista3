@@ -1,12 +1,13 @@
 #include <iostream>
 #include "dadossensor.h"
+#define START 0
 
 using namespace std;
 
 int main(){
 
-    int v = 0;
-    int f = 0;
+    int v = START;
+    int f = START;
 
     cout << "Informe o valor: ";
     cin >> v;

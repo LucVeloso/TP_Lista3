@@ -5,78 +5,14 @@
 
 using namespace std;
 
-void preencherArquivo(){
+void preencherArquivo();
 
-    int valor = 0;
-    int tamValores = 0;
+void preencherVetor(vector <int> &i);
 
-    ofstream arquivoS;
+void ordenarVetor(vector <int> &i);
 
-    arquivoS.open("L3Q5.txt");
+void extremosVetor(vector <int> i);
 
-    cout << "Informe os valores (- para parar): " << endl;
-    
-    while(cin >> valor){
+void contarElementos(vector <int> i);
 
-        arquivoS << valor << endl;
-        tamValores++;
-    }
-
-    srand(time(NULL));
-
-    for(int i = 0; i < 500 - tamValores; i++){
-
-        arquivoS << rand()%1000 << endl;
-    }
-
-    arquivoS.close();
-}
-
-void preencherVetor(vector <int> &i){
-
-    int ent = 0;
-
-    ifstream arquivoE;
-
-    arquivoE.open("L3Q5.txt");
-
-    while(arquivoE >> ent){
-
-        i.push_back(ent);
-    }
-
-    arquivoE.close();
-}
-
-void ordenarVetor(vector <int> &i){
-
-    sort(i.begin(), i.end());
-}
-
-void extremosVetor(vector <int> i){
-
-    int menor = 0;
-    int maior = i.size() - 1;
-
-    cout << "Menor Valor: " << i[menor] << endl;
-    cout << "Maior valor: " << i[maior] << endl;
-}
-
-void contarElementos(vector <int> i){
-
-    for(int cont = 0; cont < 1000; cont++){
-        cout << "O número " << cont << " aparece: " << count(i.begin(), i.end(), cont++) << endl;
-    }
-}
-
-void mostrarVetor(vector <int> i){
-
-    cout << "Valores:";
-
-    for(auto elemento : i){
-
-        cout << " " << elemento ;
-    }
-
-    cout << endl;
-}
+void mostrarVetor(vector <int> i);

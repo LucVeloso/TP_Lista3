@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#define MAXVAL 500
+#define MAIORVALOR 1000
 
 using namespace std;
 
@@ -12,12 +14,12 @@ int main(){
 
     srand(time(NULL));
 
-    for(int i = 0; i < 500; i++){
+    for(int i = 0; i < MAXVAL; i++){
 
-        arquivo << rand()%1000 << endl;
+        arquivo << rand()%MAIORVALOR << endl;
     }
 
     arquivo.close();
 
-    return 0;;
+    return 0;
 }

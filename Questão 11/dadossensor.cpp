@@ -1,9 +1,10 @@
 #include "dadossensor.h"
+#define START 0
 
 DadosSensor::DadosSensor(){
 
-    valor = 0;
-    frequencia = 0;
+    valor = START;
+    frequencia = START;
 }
 DadosSensor::DadosSensor(int v, int f){
 
