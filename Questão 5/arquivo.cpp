@@ -65,8 +65,13 @@ void extremosVetor(vector <int> i){
 
 void contarElementos(vector <int> i){
 
+    int rep = 0;
+
     for(int cont = 0; cont < MAIORVALOR; cont++){
-        cout << "O número " << cont << " aparece: " << count(i.begin(), i.end(), cont++) << endl;
+
+        rep = count(i.begin(), i.end(), cont);
+
+        if(rep >= 1) cout << "O número " << cont << " aparece: " << rep << endl;
     }
 }
 
